@@ -2,7 +2,6 @@ package com.example.clothingsuggester.data.apiManager
 
 import com.example.clothingsuggester.data.requests.WeatherDataParams
 import com.example.clothingsuggester.data.responses.WeatherDataResponse
-import com.example.clothingsuggester.ui.presenter.HomePresenter
 import com.example.clothingsuggester.util.Constants
 import com.google.gson.Gson
 import okhttp3.*
@@ -21,7 +20,7 @@ class WeatherApiManager : IWeatherApi {
 
         val url = HttpUrl.Builder()
             .scheme("https")
-            .host(Constants.url)
+            .host(Constants.URL)
             .addPathSegment("data")
             .addPathSegment("2.5")
             .addPathSegment("weather")
