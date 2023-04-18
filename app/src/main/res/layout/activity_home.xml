@@ -5,16 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.HomeActivity">
-    >
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/weather_card"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_margin="16dp"
-        android:background="#5772ff00"
+        android:layout_margin="@dimen/large_margin"
         android:backgroundTint="#5773FF"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="@dimen/medium_radius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,12 +21,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp">
+           >
 
             <ImageView
                 android:id="@+id/weather_icon"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_margin="@dimen/large_margin"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,10 +36,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="50sp"
+                android:layout_margin="@dimen/large_margin"
+                android:textSize="@dimen/temp_test"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="15" />
+
+            <ImageView
+                android:id="@+id/location_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/small_margin"
+                android:src="@drawable/baseline_location_on_24"
+                app:layout_constraintStart_toEndOf="@+id/location_name"
+                app:layout_constraintTop_toBottomOf="@+id/weather_icon" />
+
+            <TextView
+                android:id="@+id/location_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                app:layout_constraintStart_toStartOf="@+id/weather_icon"
+                app:layout_constraintTop_toBottomOf="@+id/weather_icon"
+                android:textColor="@color/white"
+                tools:text="Baghdad" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -48,9 +69,9 @@
         android:id="@+id/tex_view_suggestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="suggestion"
-        android:textSize="16dp"
+        android:layout_margin="@dimen/large_margin"
+        android:text="@string/suggestion"
+        android:textSize="@dimen/large_text"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weather_card" />
@@ -58,7 +79,7 @@
         android:id="@+id/image_view_suggestion"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/large_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tex_view_suggestion"/>
