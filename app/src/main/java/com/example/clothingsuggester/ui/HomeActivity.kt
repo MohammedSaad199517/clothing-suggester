@@ -12,10 +12,8 @@ import com.example.clothingsuggester.util.Constants
 import com.example.clothingsuggester.databinding.ActivityHomeBinding
 import com.example.clothingsuggester.ui.presenter.HomePresenter
 import com.example.clothingsuggester.ui.presenter.IHomeContract
-import com.example.clothingsuggester.util.SharedPreferenceUtil
 import com.example.clothingsuggester.util.loadImage
 import java.io.IOException
-import java.time.LocalDate
 import kotlin.math.ceil
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -46,7 +44,7 @@ class HomeActivity : AppCompatActivity(), IHomeContract.View {
         runOnUiThread {
 
             binding.weatherIcon.loadImage(Constants.getWeatherUrlIcon(weatherData.weather[0].icon))
-
+            binding.locationName.text = weatherData.name
             binding.temperature.text = ceil(weatherData.main.temp).toInt().toString() + "\u00B0"
             presenter.saveClothesAndCurrentDate(weatherData, this)
 
@@ -70,6 +68,5 @@ class HomeActivity : AppCompatActivity(), IHomeContract.View {
         }
 
     }
-
 
 }
