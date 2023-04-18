@@ -4,7 +4,6 @@ import android.content.Context
 import com.example.clothingsuggester.data.requests.WeatherDataParams
 import com.example.clothingsuggester.data.responses.WeatherDataResponse
 import java.io.IOException
-import java.time.LocalDate
 
 interface IHomeContract {
     interface View {
@@ -20,7 +19,7 @@ interface IHomeContract {
         fun fetchData(weatherDataParams: WeatherDataParams)
         fun onSuccess(weatherDataResponse: WeatherDataResponse)
 
-        fun onFailure(e: IOException)
+        fun onFailure(error: IOException)
 
 
         fun saveClothesAndCurrentDate(
