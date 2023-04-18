@@ -33,15 +33,14 @@ class HomePresenter(private val homeView: IHomeContract.View) : IHomeContract.Pr
         val currentDate = LocalDate.now().toString()
         val dateFromSharedPrefer =
             SharedPreferenceUtil(context).getCurrentDate(Constants.CURRENT_DATE_KEY, "")
-        val clothesIdFromSharedPrefer = sharedPreference.getClothesId(Constants.TODAY_CLOTHES, 0)
+        val clothesIdFromSharedPrefer = sharedPreference.getClothesId(Constants.CLOTHES_KEY, 0)
 
 
-        if (currentDate != dateFromSharedPrefer) {        //when first time using this application
-            // or using it in new day
+        if (currentDate != dateFromSharedPrefer) {
 
             sharedPreference.saveCurrentDate(Constants.CURRENT_DATE_KEY, currentDate)
-            //check is there is clothes is founded in sharedPreferences
-            if (sharedPreference.checkContainData(Constants.TODAY_CLOTHES)) {
+            //check if there is clothes id in sharedPreferences
+            if (sharedPreference.checkContainData(Constants.CLOTHES_KEY)) {
 
                 saveClothesId(
                     weatherData.main.temp,
@@ -70,7 +69,7 @@ class HomePresenter(private val homeView: IHomeContract.View) : IHomeContract.Pr
                     .filter { it != clothesIdFromSharedPrefer }
                     .random()
 
-            sharedPreference.saveClothesId(Constants.TODAY_CLOTHES, clothesSummerTodayId)
+            sharedPreference.saveClothesId(Constants.CLOTHES_KEY, clothesSummerTodayId)
 
         } else {
 
@@ -80,8 +79,7 @@ class HomePresenter(private val homeView: IHomeContract.View) : IHomeContract.Pr
                     .filter { it != clothesIdFromSharedPrefer }
                     .random()
 
-            sharedPreference.saveClothesId(Constants.TODAY_CLOTHES, clothesWinterTodayId)
-
+            sharedPreference.saveClothesId(Constants.CLOTHES_KEY, clothesWinterTodayId)
         }
     }
 
